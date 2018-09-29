@@ -1,62 +1,35 @@
 import  React,{ Component } from 'react';
-import './App.css';
+//import Button from 'antd/lib/button';
+import { Divider, Progress, Carousel, Button } from 'antd';
+import './App.less';
 
 export default class App extends Component {
-  state={
-    //数据从ajax获取，然后setState，在componentdidmount中发请求，我直接写死自己去请求
-    data:[{
-      xingming:'sdfsdf',
-      nianling:'12',
-      dizhi:'sd',
-      dianhua:'1232144'
-    },{
-      xingming:'sdfsdf',
-      nianling:'12',
-      dizhi:'sd',
-      dianhua:'1232144'
-    },{
-      xingming:'sdfsdf',
-      nianling:'12',
-      dizhi:'sd',
-      dianhua:'1232144'
-    },{
-      xingming:'sdfsdf',
-      nianling:'12',
-      dizhi:'sd',
-      dianhua:'1232144'
-    },{
-      xingming:'sdfsdf',
-      nianling:'12',
-      dizhi:'sd',
-      dianhua:'1232144'
-    }]
-  }
+  
   render() {
     return (
       <div>
-        <table>
-          <th>
-            <td>xingming</td>
-            <td>nianling</td>
-            <td>dizhi</td>
-            <td>dianhua</td>
-          </th>
-          {this.state.data.map( (item) =>{
-            return(
-              <tr>
-                <td>{item.xingming}</td>
-                <td>{item.nianling}</td>
-                <td>{item.dizhi}</td>
-                <td>{item.dianhua}</td>
-              </tr>
-            );
-          } )
-          }
-        </table>
+        <Carousel autoplay className='banner'>
+          <div><img src='https://i1.mifile.cn/a4/xmad_15379643037466_lnQCW.jpg'/></div>
+          <div><img src='https://i1.mifile.cn/a4/xmad_15381034374429_PkRwL.jpg'/></div>
+          <div><img src='https://i1.mifile.cn/a4/xmad_15375484770035_SxAhy.jpg'/>></div>
+          <div><img src='https://i1.mifile.cn/a4/xmad_15379651091209_GbxNp.jpg'/></div>
+        </Carousel>
+        <div>
+          <Divider orientation="left">Left Text</Divider>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.</p>
+          <Divider orientation="right">Right Text</Divider>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.</p>
+        </div>
+        <div>
+          <Progress type="circle" percent={75} format={percent => `${percent} Days`} />
+          <Progress type="circle" percent={100} format={() => 'Done'} />
+        </div>
+        <div className="App">
+          <Button type="primary">Button</Button>
+        </div>
       </div> 
     );
   }
 }
-//发请求开始让loading的图片显示，在成功的回调里把loading弄没
 
 
