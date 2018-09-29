@@ -1,9 +1,8 @@
 import  React,{ Component } from 'react';
-//import Button from 'antd/lib/button';
 import { Divider, Progress, Carousel, Button } from 'antd';
-import './App.less';
+import './index.less';
 
-export default class App extends Component {
+export default class Home extends Component {
   
   render() {
     return (
