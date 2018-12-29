@@ -1,7 +1,8 @@
 module.exports = {
     "parser":"babel-eslint",
     "plugins": [
-        "react"
+        "react",
+        "flowtype"
     ],
     "env": {
         "browser": true,

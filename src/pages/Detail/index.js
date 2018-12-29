@@ -7,7 +7,7 @@ export default class Detail extends Component {
   render() {
     return (
       <div>
-        <Button type="primary">Detail</Button>
+        <Button type="primary">这是详情啊</Button>
       </div> 
     );
   }

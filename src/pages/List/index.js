@@ -1,10 +1,19 @@
+/*eslint-disable*/
 import  React,{ Component } from 'react';
 import { Button } from 'antd';
 import { Route } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 import './index.less';
 
+
+@inject('actList')
+@observer
 export default class List extends Component {
   
+  componentDidMount(){
+   // this.props.actList.getList()
+    console.log(this.props.actList); 
+  }
   render() {
     return (
       <div>
@@ -13,7 +22,7 @@ export default class List extends Component {
             return <div>
               {
                 [1,2,3,4,5,6].map(item => {
-                  return <div key={item}>{item}</div>;
+                  return <div key={item}>{item+'hasjdksadlkasj'}</div>;
                 })
               }
             </div>;
@@ -26,7 +35,7 @@ export default class List extends Component {
             
           </Route>
         </div>
-        <Button type="primary">List</Button>
+        <Button type="primary">这是列表啊</Button>
       </div> 
     );
   }
