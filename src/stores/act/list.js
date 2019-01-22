@@ -5,10 +5,12 @@ class ListStor {
   @observable dataList = [1,2,3];
 
   @action
-  getList() {
-    let result = getList();
-    let { data } = result;
-    if(data) this.haha = data;
+  async getList() {
+    let result =  await getList();
+    if(result&&result.data){
+      let { data } = result;
+      this.dataList = data.data;
+    }
   }
 }
 export default new ListStor();

@@ -11,10 +11,11 @@ import './index.less';
 export default class List extends Component {
   
   componentDidMount(){
-   // this.props.actList.getList()
-    console.log(this.props.actList); 
+   this.props.actList.getList()
   }
   render() {
+    let datalist = this.props.actList.dataList.toJS()
+    console.log(datalist)
     return (
       <div>
         <div>

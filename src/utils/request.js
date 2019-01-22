@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import axios from 'axios';
 import { message } from 'antd';
 import { feachJsonp } from './jsonp';
@@ -49,7 +49,7 @@ export function request(url,options){
     .then(checkStatus)
     .then((res) => {
       let result = checkResponse(res.data, options);
-      return result();
+      return result;
     })//借口通信成功，处理返回值
     .catch(err => {
       handleError(err, options);
@@ -60,26 +60,27 @@ export function request(url,options){
 //   return response.json()
 // }
 function checkStatus(response) {
-  if (response.status >= 200 && response < 300) 
+  if (response.status >= 200 && response.status < 300) 
     return response;
   const error = new Error(response.statusText);
   error.response = response;
   throw error;
 }
 function createMessage(err) {
-  Message.error({
-    title: mess['warning'],
-    content: <div dangerouslySetInnerHTML={{
-      __html: '<span style="color:#FF8A00">' +
-        '<span class="k-iconfont  icon-jingshi " style="float:left;margin:-4px 6px 0 0"></span>' +
-        err +
-        '</span>'
-    }} ></div>,
-    closeable: true,
-    size: 'large',
-    align: 'cc cc',
-    hasMask: true
-  });
+  Message.error(`${mess['warning']}: ${err}`);
+  // Message.error({
+  //   title: mess['warning'],
+  //   content: <div dangerouslySetInnerHTML={{
+  //     __html: '<span style="color:#FF8A00">' +
+  //       '<span class="k-iconfont  icon-jingshi " style="float:left;margin:-4px 6px 0 0"></span>' +
+  //       err +
+  //       '</span>'
+  //   }} ></div>,
+  //   closeable: true,
+  //   size: 'large',
+  //   align: 'cc cc',
+  //   hasMask: true
+  // });
 }
 
 // ====== Response Class ======

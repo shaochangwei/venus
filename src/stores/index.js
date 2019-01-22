@@ -13,7 +13,7 @@ function createStores(){
           }
           return `${result}${K}${key.substr(1, key.length - 1)}`;
         }, '');
-        stores[k] = context(key);
+        stores[k] = context(key).default ? context(key).default : context(key);
       }
     }
   });

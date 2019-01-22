@@ -56,7 +56,7 @@ const Routes=()=>(
               <div>
                 <Route exact path='/' component={Home}/>
                 <Route path='/detail' component={Detail}/>
-                <Route path='/list' component={List}/>
+                <Route path='/list' render={()=>{return <List/>}}/>
                 {/* <Route path='*' component={Notfound}/> */}
               </div>
             </Content>
@@ -66,6 +66,5 @@ const Routes=()=>(
       </div>
     </Router>
   </Provider>
-
 );
 export default Routes;
